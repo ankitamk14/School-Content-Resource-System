@@ -1,3 +1,4 @@
+
 # SchoolProject
 A Spring boot application
 Import this Project through Spring Test Suite OR Eclipse Oxygen Using Maven Existing Dialog box.
@@ -25,7 +26,7 @@ And, same to be added in this file also /School_Project/src/main/java/com/spoken
 
 static String mediaPath=FOLDER_PATH_ABSOLUTE;
 
-# CREDENTIAL TO ACCESS THIS APP WITH ADMIN ACCESS
-username : spoken@spoken.org
 
-password : spoken
+
+# School-Content-Resource-System
+
