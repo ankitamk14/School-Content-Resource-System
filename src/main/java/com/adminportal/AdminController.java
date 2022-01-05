@@ -2715,5 +2715,32 @@ public class AdminController {
 		
 	}
 	
+	@RequestMapping(value="/admin/addView/addJmol",method = RequestMethod.GET)
+	public ModelAndView addJmol(Principal principal,ModelAndView mv) {
+	
+		User localUser=userService.findByUsername(principal.getName());
+		
+		mv.addObject("LoggedUser",localUser);
+		
+		ArrayList<Class> classExist=(ArrayList<Class>) classService.findAll();	// fetching out the available list of class from database.
+
+		mv.addObject("classExist", classExist);									// setting variable for view for displaying purpose
+		
+		List<DocumentExternal> documentListTemp=documentService.findAll();
+		List<DocumentExternal> documentList=new ArrayList<DocumentExternal>();
+		for(DocumentExternal temp:documentListTemp) {
+			if(temp.getAcceptedByAdmin()==1) {
+				documentList.add(temp);
+			}
+		}
+		
+		mv.addObject("Document",documentList);
+		
+		mv.setViewName("addJmol");											// setting view name
+
+		mv.addObject("viewActive","active");
+		return mv;
+		
+	}
 
 }

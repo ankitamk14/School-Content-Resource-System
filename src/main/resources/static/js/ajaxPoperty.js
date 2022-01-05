@@ -6976,7 +6976,50 @@ $(function(){
   			
   		})
   		
+
   		
+$('#upload_jmol').click(function(){
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		var className = $("#classSelected").val();
+		var subjectName = $("#subject").val();
+		var topicName = $("#topic").val();
+		var description = $("#description").val();
+		var jmol_name = $("#jmol_name").val();
+		var source = $("#source").val();
+		
+		
+		
+			
+		var jmol_data = {
+			"subjectName":subjectName,
+			"className":className,
+			"topicName":topicName,
+			"description":description,
+			"jmolTitle" : jmol_name,
+			"source" : source,
+		}
+		console.log(JSON.stringify(jmol_data));
+		urlPassed = projectPath+"uploadJmol";
+  			$.ajax({
+	  	type: "POST",
+	  	async:false,
+   		 url: urlPassed,
+	data : jmol_data,
+   		 beforeSend: function(xhr) {
+   		             xhr.setRequestHeader(header, token);
+   		    		},
+   		 cache: false,
+    	 timeout: 600000,
+   		 success: function (data){ 
+   			alert("success");
+		},
+		error : function(err){
+			console.log("not working. ERROR: "+JSON.stringify(err));
+			alert("failed");
+		}
+	})
+})
   		
   		
   

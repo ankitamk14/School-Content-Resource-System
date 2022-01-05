@@ -25,8 +25,20 @@ public class JmolServiceImpl implements JmolService{
 	@Override
 	public void addJmol(Jmol jmol) {
 		jmolRepo.save(jmol);
-		
 	}
+
+	@Override
+	public int count() {
+		
+		return (int) jmolRepo.count() ;
+	}
+
+	@Override
+	public int save(Jmol temp) {
+		jmolRepo.save(temp);
+		return 0;
+	}
+	
 	
 	
 }

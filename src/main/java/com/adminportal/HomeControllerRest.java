@@ -52,6 +52,7 @@ import com.adminportal.content.ConceptMap;
 import com.adminportal.content.ContactForm;
 import com.adminportal.content.DocumentExternal;
 import com.adminportal.content.Events;
+import com.adminportal.content.Jmol;
 import com.adminportal.content.LessonPlan;
 import com.adminportal.content.Phets;
 import com.adminportal.content.QuizQuestion;
@@ -76,6 +77,7 @@ import com.adminportal.service.CommentService;
 import com.adminportal.service.ConceptMapService;
 import com.adminportal.service.DocumentExternalService;
 import com.adminportal.service.EventService;
+import com.adminportal.service.JmolService;
 import com.adminportal.service.LessonPlanService;
 import com.adminportal.service.PhetsService;
 import com.adminportal.service.QuizQuestionService;
@@ -184,6 +186,11 @@ public class HomeControllerRest {
 	
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+	private JmolService jmolService;
+	
+	public static String jmol_content_type="Jmol";
 	
 	/**
 	 * Get method to Count number of resource added inside a particular topic
@@ -3512,6 +3519,41 @@ public class HomeControllerRest {
 		return "ok";
 	}
 	
+//	@RequestParam("jmolFile") MultipartFile[] uploadPhoto,
+	@PostMapping("/uploadJmol")
+//	public @ResponseBody String uploadJmol(@RequestBody Jmol jmol, Principal principal) throws Exception{
+	public @ResponseBody String uploadJmol(@RequestParam String className,@RequestParam String subjectName,
+			@RequestParam String topicName, Principal principal,
+			@RequestParam String description,@RequestParam String source,@RequestParam String jmolTitle) throws Exception{
+		System.err.println("********************************1");
+		int documentId=jmolService.count()+1;
+		Class localClass=classService.findByClassName(Integer.parseInt(className));									// retrieving class modal
+		Subject localSubject=subjectService.findBysubName(subjectName);								// retrieving subject modal
+		SubjectClassMapping localSubjectClass=subjectClassService.findBysubAndstandard( localClass,localSubject); // retrieving subject class mapping from class and subject
+		Topic localTopic=topicService.findBysubjectClassMappingAndtopicName(localSubjectClass, topicName);	// retrieving topic from subject class mapping
+		User usr=userService.findByUsername(principal.getName());
+		Jmol jmol = new Jmol(documentId, jmol_content_type, ServiceUtility.getCurrentTime(), ServiceUtility.getCurrentTime(), "url",description, 1,1,"null", localTopic, usr,source,jmolTitle);
+		jmolService.save(jmol);
+
+		
+//		ServiceUtility.createFolder(env.getProperty("spring.applicationexternalPath.name")+"Media/User/"+principal.getName()+"/Profile");
+//		
+//		String createFolder=env.getProperty("spring.applicationexternalPath.name")+"Media/User/"+principal.getName()+"/Profile";
+//		
+//		String documentLocal=ServiceUtility.uploadFile(uploadPhoto, createFolder);
+//		
+//		int indexToStart=documentLocal.indexOf("Media");
+//		
+//		String document=documentLocal.substring(indexToStart, documentLocal.length());
+//		
+//		User localUser=userService.findByUsername(principal.getName());
+//		localUser.setProfilePic(document);
+//		
+//		userService.save(localUser);
+		
+		
+		return "ok";
+	}
 	
 	
 	

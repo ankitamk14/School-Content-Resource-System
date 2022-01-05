@@ -115,7 +115,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			"/updateVideo",
 			"/updatePhet",
 			"/updateArticle",
-			"/jmols"
+			"/jmols",
+			"/uploadJmol/**"
 			
 		
 	};

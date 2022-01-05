@@ -94,6 +94,12 @@ public class Jmol {
 	@OneToMany(mappedBy = "conceptMap",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Comment> comment=new ArrayList<Comment>();
 	
+	@Column(name="source")
+	private String source;
+	
+	@Column(name="jmol_title")
+	private String jmol_title;
+	
 	public Jmol() {}
 
 
@@ -111,7 +117,7 @@ public class Jmol {
 
 
 	public Jmol(int concepMapid, String type, Timestamp dateAdded, Timestamp dateModified, String url,
-			String description, int status,int acceptedByAdmin, String remark, Topic topic, User user) {
+			String description, int status,int acceptedByAdmin, String remark, Topic topic, User user, String source, String title) {
 		super();
 		this.jmolId = concepMapid;
 		this.type = type;
@@ -124,7 +130,13 @@ public class Jmol {
 		this.remark = remark;
 		this.topic = topic;
 		this.user = user;
+		this.source = source;
+		this.jmol_title = title;
 	}
+
+
+
+	
 
 
 
@@ -222,6 +234,30 @@ public class Jmol {
 	
 	public void setAcceptedByAdmin(int acceptedByAdmin) {
 		this.acceptedByAdmin = acceptedByAdmin;
+	}
+
+
+
+	public String getSource() {
+		return source;
+	}
+
+
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+
+
+	public String getJmol_title() {
+		return jmol_title;
+	}
+
+
+
+	public void setJmol_title(String jmol_title) {
+		this.jmol_title = jmol_title;
 	}
 
 	
