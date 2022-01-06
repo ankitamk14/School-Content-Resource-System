@@ -1,6 +1,7 @@
 package com.adminportal.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,4 +21,6 @@ public interface JmolService {
 	int count();
 	
 	int save(Jmol temp);
+	
+	Jmol findById(int id);
 }

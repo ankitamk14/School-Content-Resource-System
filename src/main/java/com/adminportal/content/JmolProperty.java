@@ -43,7 +43,13 @@ public class JmolProperty {
 	 * Name of class like 1,2 etc
 	 */
 	@Column(name="name",nullable = false)
-	private int name;
+	private String name;
+	
+	@Column(name="label",nullable = false)
+	private String label;
+	
+	@Column(name="script",nullable = false)
+	private String script;
 	
 	/**
 	 * Visibility
@@ -61,6 +67,9 @@ public class JmolProperty {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@ManyToOne
+	@JoinColumn(name="jmol",nullable = false)
+	private Jmol jmol;
 	
 	public Timestamp getDateAdded() {
 		return dateAdded;
@@ -86,11 +95,26 @@ public class JmolProperty {
 	public void setProperty_id(int property_id) {
 		this.property_id = property_id;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
+	}
+	public JmolProperty(int property_id, String name, String label, String script, boolean status, Timestamp dateAdded,
+			User user, Jmol jmol) {
+		super();
+		this.property_id = property_id;
+		this.name = name;
+		this.label = label;
+		this.script = script;
+		this.status = status;
+		this.dateAdded = dateAdded;
+		this.user = user;
+		this.jmol = jmol;
+	}
+	public JmolProperty() {
+		super();
 	}
 	
 	

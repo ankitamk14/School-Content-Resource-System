@@ -49,10 +49,12 @@ import com.adminportal.content.Class;
 import com.adminportal.content.Comment;
 import com.adminportal.content.CommentReply;
 import com.adminportal.content.ConceptMap;
+import com.adminportal.content.Conformation;
 import com.adminportal.content.ContactForm;
 import com.adminportal.content.DocumentExternal;
 import com.adminportal.content.Events;
 import com.adminportal.content.Jmol;
+import com.adminportal.content.JmolProperty;
 import com.adminportal.content.LessonPlan;
 import com.adminportal.content.Phets;
 import com.adminportal.content.QuizQuestion;
@@ -75,8 +77,10 @@ import com.adminportal.service.ClassService;
 import com.adminportal.service.CommentReplyService;
 import com.adminportal.service.CommentService;
 import com.adminportal.service.ConceptMapService;
+import com.adminportal.service.ConformationService;
 import com.adminportal.service.DocumentExternalService;
 import com.adminportal.service.EventService;
+import com.adminportal.service.JmolPropertyService;
 import com.adminportal.service.JmolService;
 import com.adminportal.service.LessonPlanService;
 import com.adminportal.service.PhetsService;
@@ -189,6 +193,12 @@ public class HomeControllerRest {
 	
 	@Autowired
 	private JmolService jmolService;
+	
+	@Autowired
+	private JmolPropertyService jmolPropService;
+	
+	@Autowired
+	private ConformationService conformationService;
 	
 	public static String jmol_content_type="Jmol";
 	
@@ -3552,6 +3562,42 @@ public class HomeControllerRest {
 //		userService.save(localUser);
 		
 		
+		return "ok";
+	}
+
+	@PostMapping("/addJmolScripts")
+	public @ResponseBody String addJmolScripts(@RequestParam String jmolId,@RequestParam String groupName,
+			@RequestParam String labels,@RequestParam String scripts, Principal principal
+			) throws Exception{
+		System.err.println("********************************1");
+		System.err.println(jmolId);
+		System.err.println(groupName);
+		System.err.println(labels);
+		System.err.println(scripts);
+		String[] arrOfLabels = labels.split(",");
+		String[] arrOfScripts = scripts.split(",");
+		for (int i = 0; i < 4; i++) {
+			int id = jmolPropService.count()+1;
+			ServiceUtility.getCurrentTime();
+			User usr=userService.findByUsername(principal.getName());
+			Jmol jmol = jmolService.findById(Integer.parseInt(jmolId));
+			JmolProperty jp = new JmolProperty(id, groupName, arrOfLabels[i], arrOfScripts[i], true, ServiceUtility.getCurrentTime(), usr, jmol);
+			jmolPropService.save(jp);
+			}
+		return "ok";
+	}
+	
+	@PostMapping("/addJmolConformation")
+	public @ResponseBody String addJmolConformation(@RequestParam String jmolId,@RequestParam String conformationName,
+			@RequestParam String source,Principal principal
+			) throws Exception{
+		System.err.println("********************************1");
+		System.err.println(jmolId);
+		User usr=userService.findByUsername(principal.getName());
+		Jmol jmol = jmolService.findById(Integer.parseInt(jmolId));
+		int id = conformationService.countRows()+1;
+		Conformation con = new Conformation(id, conformationName, true, ServiceUtility.getCurrentTime(), usr, jmol);
+		conformationService.save(con);
 		return "ok";
 	}
 	

@@ -1,14 +1,11 @@
-/*  Company Name  : Spoken Tutorial IIT bombay
- * 	Author Name	  : Om Prakash
- * 	Version		  : 1.0
- * 	Description	  : This is Comment Concept-map modal to capture all concept-map related data and then persist same to database.
- */
+
 
 package com.adminportal.content;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,7 +28,7 @@ import com.adminportal.domain.User;
 public class Jmol {
 	
 	/**
-	 * A unique ID representing single ConceptMap Resource
+	 * A unique ID representing single Jmol Resource
 	 */
 	@Id
 	@Column(name="jmol_id",nullable = false,updatable = false)
@@ -100,6 +97,9 @@ public class Jmol {
 	@Column(name="jmol_title")
 	private String jmol_title;
 	
+	@OneToMany(mappedBy="jmol")
+    private Set<JmolProperty> items;
+	
 	public Jmol() {}
 
 
@@ -116,10 +116,10 @@ public class Jmol {
 
 
 
-	public Jmol(int concepMapid, String type, Timestamp dateAdded, Timestamp dateModified, String url,
+	public Jmol(int jmolId, String type, Timestamp dateAdded, Timestamp dateModified, String url,
 			String description, int status,int acceptedByAdmin, String remark, Topic topic, User user, String source, String title) {
 		super();
-		this.jmolId = concepMapid;
+		this.jmolId = jmolId;
 		this.type = type;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
@@ -133,19 +133,12 @@ public class Jmol {
 		this.source = source;
 		this.jmol_title = title;
 	}
-
-
-
-	
-
-
-
-	public int getConcepMapid() {
+	public int getJmolId() {
 		return jmolId;
 	}
 
-	public void setConcepMapid(int concepMapid) {
-		this.jmolId = concepMapid;
+	public void setJmolId(int jmolId) {
+		this.jmolId = jmolId;
 	}
 
 	public String getType() {

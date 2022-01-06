@@ -2,6 +2,7 @@ package com.adminportal.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,12 @@ public class JmolServiceImpl implements JmolService{
 	public int save(Jmol temp) {
 		jmolRepo.save(temp);
 		return 0;
+	}
+
+	@Override
+	public Jmol findById(int id) {
+		Optional<Jmol> jmol = jmolRepo.findById(id);
+		return jmol.get();
 	}
 	
 	

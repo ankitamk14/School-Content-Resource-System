@@ -43,7 +43,7 @@ public class Conformation {
 	 * Name of conformation
 	 */
 	@Column(name="name",nullable = false)
-	private int name;
+	private String name;
 	
 //	@Column(name="base_jmol",nullable = false)
 //	private Jmol base_jmol;
@@ -63,6 +63,10 @@ public class Conformation {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="jmolId")
+	private Jmol jmol;
 	
 	
 	public Timestamp getDateAdded() {
@@ -84,10 +88,10 @@ public class Conformation {
 		this.status = status;
 	}
 	
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public int getConformation_id() {
@@ -102,6 +106,25 @@ public class Conformation {
 //	public void setBase_jmol(Jmol base_jmol) {
 //		this.base_jmol = base_jmol;
 //	}
+	public Jmol getJmol() {
+		return jmol;
+	}
+	public void setJmol(Jmol jmol) {
+		this.jmol = jmol;
+	}
+	public Conformation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Conformation(int conformation_id, String name, boolean status, Timestamp dateAdded, User user, Jmol jmol) {
+		super();
+		this.conformation_id = conformation_id;
+		this.name = name;
+		this.status = status;
+		this.dateAdded = dateAdded;
+		this.user = user;
+		this.jmol = jmol;
+	}
 	
 	
 

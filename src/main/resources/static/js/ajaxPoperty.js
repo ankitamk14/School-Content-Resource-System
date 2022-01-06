@@ -6987,10 +6987,6 @@ $('#upload_jmol').click(function(){
 		var description = $("#description").val();
 		var jmol_name = $("#jmol_name").val();
 		var source = $("#source").val();
-		
-		
-		
-			
 		var jmol_data = {
 			"subjectName":subjectName,
 			"className":className,
@@ -7021,7 +7017,61 @@ $('#upload_jmol').click(function(){
 	})
 })
   		
-  		
+ $('#add_property').click(function(){
+	let select_jmol = $("#select_jmol").val();
+	let property = $("#property").val();
+	let labels = document.getElementsByName('script_label');
+	let scripts = document.getElementsByName('script');
+	console.log("***********");
+	console.log(select_jmol);
+	console.log(property);
+	console.log(labels);
+	console.log(scripts);
+	console.log("***********");
+	
+	let label_list = []
+	let script_list = []
+	
+	
+	for (let i = 0; i < labels.length; i++) {
+  		label_list.push(labels[i].value);
+	}
+	for (let i = 0; i < scripts.length; i++) {
+  		script_list.push(scripts[i].value);
+	} 
+	var jmol_data = {
+			"jmolId":select_jmol,
+			"groupName":property,
+			"labels":label_list.toString(),
+			"scripts":script_list.toString(),
+		}
+
+	urlPassed = projectPath+"addJmolScripts";
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$.ajax({
+	  	type: "POST",
+	  	async:false,
+   		 url: urlPassed,
+		 data : jmol_data,
+   		 beforeSend: function(xhr) {
+   		             xhr.setRequestHeader(header, token);
+   		    		},
+   		 cache: false,
+    	 timeout: 600000,
+   		 success: function (data){ 
+   			alert("success");
+		},
+		error : function(err){
+			console.log("not working. ERROR: "+JSON.stringify(err));
+			alert("failed");
+		}
+	})
+	
+	
+	
+	
+}) 		
   
   		
   		

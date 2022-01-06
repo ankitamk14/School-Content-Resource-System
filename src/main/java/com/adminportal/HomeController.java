@@ -1380,23 +1380,23 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "/jmols/", method = RequestMethod.GET)
-//	public ModelAndView jmol(@PathVariable("subName") String SubName, ModelAndView mv,Principal principal) {
-	public ModelAndView jmol(ModelAndView mv,Principal principal) {
-		List<Jmol> jmols = jmolService.findAll();
-		System.err.println("*******************************");
-		System.err.println(jmols);
-		System.err.println("*******************************");
-		Topic topic = topicService.findById(1);
-		User user = userService.findById(1);
-		Jmol j = new Jmol(1, "Jmol", Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "address",
-				 "descr", 1,1, "remarks", topic, user);
-		
-		jmolService.addJmol(j);
-		
-		mv.setViewName("jmol");
-		return mv;
-	}
+//	@RequestMapping(path = "/jmols/", method = RequestMethod.GET)
+////	public ModelAndView jmol(@PathVariable("subName") String SubName, ModelAndView mv,Principal principal) {
+//	public ModelAndView jmol(ModelAndView mv,Principal principal) {
+//		List<Jmol> jmols = jmolService.findAll();
+//		System.err.println("*******************************");
+//		System.err.println(jmols);
+//		System.err.println("*******************************");
+//		Topic topic = topicService.findById(1);
+//		User user = userService.findById(1);
+//		Jmol j = new Jmol(1, "Jmol", Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), "address",
+//				 "descr", 1,1, "remarks", topic, user);
+//		
+//		jmolService.addJmol(j);
+//		
+//		mv.setViewName("jmol");
+//		return mv;
+//	}
 	
 	
 	/*--------------------------------------------------------END----------------------------------------------------------------------------------*/
