@@ -2,34 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
-<div th:replace="common/header :: common-header"></div>
-
 <title>Courses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="_csrf" th:content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
 
 
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<link rel="stylesheet" th:href="@{/css/all.min.css}" type="text/css" />
+<!-- <link rel="stylesheet" th:href="@{/datatables.min.css}" type="text/css" /> -->
+
+<!-- <link rel="stylesheet" th:href="@{/css/styleTemplate.css}" /> -->
 
 </head>
+
 <body>
 
 	<!--  CODE FOR NAVBAR -->
 	<div th:replace="common/header :: navbar"></div>
-
-
-	<!-- <div class="" style="background-color: rgb(10, 42, 102)" th:if="${classSelected} or ${subjectSelected}">
-		<div class="container">
-			<h5 style="color: white; margin-bottom: 0px" th:if="${classSelected}">
-				<span th:text="'Class '+${classSelected}"></span>
-			</h5>
-			<h1 style="color: white; font-weight: bold" th:if="${subjectSelected}">
-				<span th:text="${subjectSelected}"></span>
-			</h1>
-
-
-
-		</div>
-	</div> -->
-
 	<!-- Topic list view starts here -->
 	<section id="topicListView">
 	<div class="topicList-header">
