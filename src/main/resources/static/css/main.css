@@ -1,13 +1,4 @@
 /******************************************* Generic Start *******************************************/
-/* :root {
-  --main-bg-color: #00838f; cyan darken 3 - rgb(0,131,143)
-  --secondary-color: #ff9800;
-  --accent-color:#E0A800; 
-  --accent-color2: #01579b;  rgb(1,87,155)
-  --grey-color: #E6E6E6;
-  --gap: 44px;
-  --font-sans-serif: Arial, Helvetica, sans-serif;
-} */
 *{
 	margin: 0;
 	padding: 0;
@@ -26,6 +17,9 @@ section{
 }
 p{
 	font-family: Arial, Helvetica, sans-serif;
+}
+.svg-inline--fa{
+	width: 1.5rem;
 }
 /******************************************* Generic End *******************************************/
 /******************************************* Nav Start *******************************************/
@@ -113,7 +107,7 @@ p{
 }
 
 .intro{
-	background-image: url('../Images/main_bg2.png');
+	background-image: url('../Images/main_bg.jpg');
 	background-attachment: fixed;
 	width:100%;
   	height: 500px;
@@ -597,7 +591,7 @@ position: relative;
 }
 .login-bg{
 	/* border: 1px solid red; */
-	background-image: url('../Images/main_bg2.png');
+	background-image: url('../Images/main_bg.jpg');
 	width:100%;
 	background-size: cover;
 	position: relative;

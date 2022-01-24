@@ -5,14 +5,6 @@ body{
 }
  
  /* DESIGN FOR INDEX PAGE */
-.section{
-	padding-top:70px;
-	text-align:center;
-    max-width: 500px;
-    margin: 0 auto;
-    border-radius: 10px;
-  
-}
 
 .header{
 	padding-bottom:20px;
@@ -37,87 +29,19 @@ body{
 /* -- END OF STYLEING FOR INDEX PAGE--   */
 
 
-/* Start of Styling for home page  */
-.sectionHome{
-	padding-top:70px;
-	padding-left:30px;
-	margin:10px 70px;
-	
-}
-
-.col-property{
-	font-size:16px;
-	padding:10px 40px;
-}
-
-.font-property-add{
-	padding-right:10px;
-	display:inline;
-	color:green;
-}
-
-.font-property-view{
-	padding-right:10px;
-	display:inline;
-	color:#a13598;
-}
-
-.font-property-task{
-	padding-right:10px;
-	display:inline;
-	color:#d11121;
-}
-
 .overflow-y{
 	 overflow-y: scroll;
 	 height:860px;
 }
 
-.Notify{
-	font-size:25px;
-	font-weight:bold;
-}
-
-/* -- End of Styling for Home Page -- */
-
-
-
-/* Start of child page styling ------ */
-
-.header-child{
-	padding-top:20px;
-	text-align:center;
-	display:strong;
-	font-size:25px;
-	
-}
 .row label{
 	font-size:22px;
-	/* padding-left:70px; */
 }
 
-.btn-action{
-	width:100%;
-	
-}
-
-
-
-.form-check{
-	padding:20px;
-	margin:10px;
-	text-align:flex;
-}
 
 #imp-info{
 	color:red;
 	padding-left:20px;
-}
-
-#agree-property{
-	font-size:15px;
-	padding:15px;
-	
 }
 
 .terms-and-condition{
@@ -231,56 +155,8 @@ body{
     
 }
 
-
-.section-title::before{
-    content: "";
-    position: absolute;
-    width: 170px;
-    bottom: 0;
-    left: 49%;
-    margin-left: -70px;
-    height: 1px;
-    background: #CC2A41;
-}
-
-.section-title::after{
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    bottom: -11px;
-    left: 50.4%;
-    margin-left: -12px;
-    border: 5px solid #fff;
-    border-radius: 25px;
-    background: #CC2A41;
-}
-
-.address{
-    float: left;
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
 .address a{
     padding: 5px;
-}
-
-.section-title-except-contact-us{
-    font-size: 30px;
-    color: #53626d;
-    position: relative;
-    margin: 0 0 20px;
-    font-family: 'Roboto-medium';
-    font-weight: 500; 
-    font-weight: bold;
-    
-}
-
-.section-title-except-contact-us::before{
-
-    
 }
 
 .line{
@@ -289,95 +165,6 @@ body{
     width: 5%;
     margin-bottom: 2em;
 }
-
-.base-heading{
-    padding: 0em 0 2em;
-    font-family: 'Righteous', cursive;
-}
-
-.base-heading h4{
-    float: left;
-    color: #001c32;
-    font-size: 3em;
-    text-transform: uppercase;
-    position: relative;
-    text-align: center;
-}
-
-.base-heading h4 span{
-    display: block;
-    font-size: 20px;
-}
-
-.base-heading h4::after{
-    content: '';
-    background: #FA620F;
-    display: block;
-    width: 89px;
-    height: 2px;
-    position: absolute;
-    left: 89%;
-    transform: rotate(118deg);
-    top: 53%;
-}
-
-.base-heading h6{
-    float: right;
-    font-size: 1.5em;
-    margin-top: 3%;
-    width: 77%;
-}
-
-.base-content p{
-    padding-top: 3px;
-   font-size: 14px;
-   line-height: 1.8em;
-   margin: 5em 0 3em; 
-   text-align: justify;
-}
-
-.view a{
-    color: #FA620F;
-    border: 1px solid #FA620F;
-    padding: 8px 25px;
-    font-size: 14px;
-    font-family: 'Righteous', cursive;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:20px;
-}
-
-#event{
-   
-}
-
-.testimonial{
-    text-align: justify;
-    text-align: center;
-    width: 50%;
-    margin-left: 25%;
-}
-
-.column-video-property{
-    padding: 10px;
-}
-
-.wrapper-carousel-fix p{
-    font-size:18px;
-}
-
-.bg-poster{
-    
-    background-image: url('../Images/maxresdefault.jpg');
-    min-height: 700px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-
-}
-
-/*---------------------------------------------------END--------------------------------------------------------------------------*/   
 
 
 /* ------------------------------------------------------Register Page Design------------------------------------------------------- *?
@@ -388,9 +175,7 @@ body{
     margin: auto;
     position: relative;
     float: center;
- 
-    /* width: 70%; */
-}
+ }
 
 .vertical-tab input[name="sections"] {
     left: -9999px;
@@ -503,7 +288,6 @@ a.bottom-text-w3ls {
 /*------------------------------------------------------------ Login Page Design ----------------------------------------------------------------*/
 
 .spk-login-form{
-    /* background: rgba(0, 0, 0, 0.4117647058823529); */
     max-width: 500px;
     margin: 50px auto;
     padding: 3em;
@@ -516,11 +300,6 @@ a.bottom-text-w3ls {
     margin: 20px 0;
 }
 
-.forgot {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
 
 .btn-login {
     width:100%;
@@ -537,20 +316,6 @@ p.spk-register-p {
     text-align: center;
     margin-top: 2em;
 }
-
-.card-inner{
-    margin-left: 4rem;
-}
-
-/*.backgroundImage{
-	background-image: url(/Images/loginBack.jpg);
-    min-height:900;
-  
-    background-position: center;
-    background-repeat: repeat-x;
-    background-size: cover;
-    position: relative;
-}*/
 
 
 .nav-link{
@@ -572,10 +337,6 @@ p.spk-register-p {
 
 
 /******* footer Experiment********************/
-/* .copyright {
-    background-color: 
-    #1a252f;
-} */
 
 .text-white {
     color: 
@@ -603,25 +364,6 @@ p.spk-register-p {
 	
 }
 
-
-/***************************** Tile on Courses Selection *****************************************/
-
-#termsAndConditionButton{
-	margin-left: 20px;
-	padding: inherit;
-}
-
-
-/******************************** Media Queries ***************************************************/
-
-/*@media screen and (max-width:600px){
-	body{
-		font-size:100px;
-	}
-}*/
-
-
-
 /*           Responsive---------------- For Registration Page--------------------------------------*/
 @media(max-width: 1080px) {
     h1 {
@@ -637,22 +379,12 @@ p.spk-register-p {
     .vertical-tab .section-w3ls article {
         min-width: 445px;
     }
-
-    p.para-style-2 {
-        font-size: 14px;
-        margin-bottom: 1em;
-    }
-
-    p.para-style {
-        margin-bottom: .7em;
-        font-size: 14px;
-    }
 }
 
 @media(max-width: 900px) {
-    .sub-main-w3 {
+    /* .sub-main-w3 {
         max-width: 768px;
-    }
+    } */
 
     .vertical-tab .section-w3ls article {
         min-width: 400px;
@@ -672,22 +404,6 @@ p.spk-register-p {
 }
 
 @media(max-width: 768px) {
-    .sub-main-w3 {
-        max-width: 575px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    }
-
-    .image-style {
-        float: none;
-        width: 100%;
-        min-height: 300px;
-        order: 2;
-    }
-
     .vertical-tab {
         float: none;
         width: 100%;
@@ -707,10 +423,6 @@ p.spk-register-p {
 }
 
 @media(max-width: 600px) {
-    .sub-main-w3 {
-        max-width: 500px;
-    }
-
     .vertical-tab .section-w3ls article {
         min-width: 365px;
         left: 135px;
@@ -739,32 +451,11 @@ p.spk-register-p {
         padding: 26.8px 10px;
     }
 
-    .sub-main-w3 {
-        max-width: 400px;
-    }
-
-    .image-style {
-        min-height: 220px;
-    }
-
-    .sub-main-w3 form {
-        padding: 1.5em;
-    }
-
     .submit {
         font-size: 14px;
     }
 
     .input input {
-        font-size: 13px;
-    }
-
-    p.para-style {
-        margin-bottom: .4em;
-        font-size: 13px;
-    }
-
-    p.para-style-2 {
         font-size: 13px;
     }
 
@@ -776,20 +467,13 @@ p.spk-register-p {
         margin-top: 3em;
     }
 
-    .last-btn {
-        margin: 1em auto 0;
-    }
-
     .copyright h2 {
         font-size: 12px;
     }
 }
 
 @media(max-width: 414px) {
-    .sub-main-w3 {
-        max-width: 320px;
-    }
-
+   
     .vertical-tab .section-w3ls article {
         position: static;
     }
@@ -809,10 +493,6 @@ p.spk-register-p {
         border-top: none;
     }
 
-    .image-style {
-        min-height: 190px;
-    }
-
     h1 {
         font-size: 1.8em;
         padding: 6.5vw 1vw 3vw;
@@ -821,26 +501,9 @@ p.spk-register-p {
     .copyright h2 {
         font-size: 13px;
     }
-
-    .last-btn {
-        margin: 1.5em auto 0;
-    }
-
-    p.para-style {
-        margin-bottom: 1em;
-    }
-
-    p.para-style-2 {
-        margin-bottom: 2em;
-    }
-
 }
 
 @media(max-width: 320px) {
-    .sub-main-w3 {
-        max-width: 270px;
-    }
-
     .vertical-tab .section-w3ls article {
         min-width: 270px;
     }
