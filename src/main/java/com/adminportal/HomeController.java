@@ -843,61 +843,56 @@ public class HomeController {
 		Subject localSubject = null;
 		SubjectClassMapping localSubjectClassMapping;
 		List<Topic> localTopictemp = null;
-		Topic singleTopic=null;
+		Topic singleTopic = null;
 		
 		if(principal != null) {
-			User localUser=userService.findByUsername(principal.getName());
-			
+			User localUser = userService.findByUsername(principal.getName());
 			mv.addObject("LoggedUser",localUser);
 		}
 		
-		
-		
-
 		try {
 			
 			if(!topicSelected.contentEquals("Select Topic")) {
-			
-				singleTopic=topicService.findById(Integer.parseInt(topicSelected));
-				
+					
+				singleTopic = topicService.findById(Integer.parseInt(topicSelected));
 				mv.setViewName("redirect:contentTutorial/"+singleTopic.getTopicId());
 				return mv;
+				
 			}
-			
 			else if (subject.contentEquals("Select Subject") && classSelected.contentEquals("Select Class")) {
+
 				localTopictemp = topicService.findAll();
 				System.out.println("all value");
-
+				
 			}
-
 			else if (subject.contentEquals("Select Subject") && !classSelected.contentEquals("Select Class")) {
+				
 				System.out.println("wow");
 				localClass = classService.findByClassName(Integer.parseInt(classSelected.substring(6)));
 				List<SubjectClassMapping> tempLocalSubjectClassMapping = subjectClassService
 						.getClassFromMapping(localClass);
 				localTopictemp = topicService.findBySubjectClassMppaing(tempLocalSubjectClassMapping);
-
-			} else if (!subject.contentEquals("Select Subject") && classSelected.contentEquals("Select Class")) {
+				
+			} 
+			else if (!subject.contentEquals("Select Subject") && classSelected.contentEquals("Select Class")) {
 				localSubject = subjectService.findBySubjectName(subject);
 				List<SubjectClassMapping> tempLocalSubjectClassMapping = subjectClassService
 						.getClassFromSubject(localSubject);
 				localTopictemp = topicService.findBySubjectClassMppaing(tempLocalSubjectClassMapping);
 
-			} else if (!subject.contentEquals("Select Subject") && !classSelected.contentEquals("Select Class")) {
+			} 
+			else if (!subject.contentEquals("Select Subject") && !classSelected.contentEquals("Select Class")) {
+				
 				localClass = classService.findByClassName(Integer.parseInt(classSelected.substring(6)));
-
 				localSubject = subjectService.findBySubjectName(subject);
-
 				localSubjectClassMapping = subjectClassService.findBysubAndstandard(localClass, localSubject);
-
 				localTopictemp = topicService.findBysubjectclassMapping(localSubjectClassMapping);
 
 			}
-		}  catch (Exception e) {
-			e.printStackTrace();
+		}catch (Exception e){
 			
+			e.printStackTrace();
 			mv.setViewName("redirect:/");
-
 			return mv;
 			
 		}
@@ -911,7 +906,9 @@ public class HomeController {
 		List<Topic> localTopic = new ArrayList<Topic>();
 		for (Topic temp : localTopictemp) {
 			if (temp.getStatus() == 1 && temp.getSubjectClassMapping().isStatus() && temp.getSubjectClassMapping().getSub().isStatus() && temp.getSubjectClassMapping().getStandard().isStatus()) {
-				localTopic.add(temp);
+				if(temp.getTutorial().size() != 0 || temp.getArticleExternal().size() != 0 ) {
+					localTopic.add(temp);
+				}
 			}
 		}
 
